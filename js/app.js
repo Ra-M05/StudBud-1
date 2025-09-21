@@ -201,34 +201,38 @@ class StudyHubApp {
             <div class="note-card dsa fade-in">
                 <h3>Arrays</h3>
                 <p>Linear data structure for storing elements of the same type. Supports random access and efficient traversal.</p>
+                <a href="https://www.geeksforgeeks.org/dsa/array-data-structure-guide/" target="_blank"></a>
+                <button class="btn-primary">Click on this!</button>
             </div>
             <div class="note-card dsa fade-in">
                 <h3>Linked Lists</h3>
                 <p>Collection of nodes where each node contains data and a reference to the next node. Useful for dynamic memory allocation.</p>
-            </div>
+                <a href="https://www.geeksforgeeks.org/dsa/linked-list-data-structure/" target="_blank"></a>
+                <button class="btn-primary">Click on this!</button>
+                </div>
             <div class="note-card dsa fade-in">
                 <h3>Stacks</h3>
                 <p>LIFO (Last In First Out) structure. Supports push and pop operations. Used in function calls, expression evaluation, etc.</p>
+                <a href="https://www.geeksforgeeks.org/dsa/stack-data-structure/" target="_blank" target="_blank"></a>
+                <button class="btn-primary">Click on this!</button>
             </div>
             <div class="note-card dsa fade-in">
                 <h3>Queues</h3>
                 <p>FIFO (First In First Out) structure. Supports enqueue and dequeue operations. Used in scheduling, buffering, etc.</p>
+                <a href="https://www.geeksforgeeks.org/dsa/queue-data-structure/" target="_blank"target="_blank" ></a>
+                <button class="btn-primary">Click on this!</button>
             </div>
             <div class="note-card dsa fade-in">
                 <h3>Trees</h3>
                 <p>Hierarchical data structure with nodes connected by edges. Binary trees, BSTs, AVL trees, etc. are common types.</p>
+                <a href="https://www.geeksforgeeks.org/dsa/tree-data-structure/" target="_blank"target="_blank" ></a>
+                <button class="btn-primary">Click on this!</button>
             </div>
-            <div class="note-card dsa fade-in">
+           <div class="note-card dsa fade-in ">
                 <h3>Graphs</h3>
                 <p>Set of nodes (vertices) connected by edges. Used to represent networks, relationships, etc.</p>
-            </div>
-            <div class="note-card dsa fade-in">
-                <h3>Sorting Algorithms</h3>
-                <p>Techniques to arrange data in a particular order. Examples: Bubble Sort, Merge Sort, Quick Sort.</p>
-            </div>
-            <div class="note-card dsa fade-in">
-                <h3>Searching Algorithms</h3>
-                <p>Techniques to find elements in data structures. Examples: Linear Search, Binary Search.</p>
+                <a href="https://www.geeksforgeeks.org/dsa/graph-data-structure/" target="_blank"target="_blank" ></a>
+                <button class="btn-primary">Click on this!</button>
             </div>
         `;
     }
@@ -265,27 +269,31 @@ class StudyHubApp {
         quizContainer.innerHTML = `
             <div class="quiz-selection">
                 <h3>Available Quizzes</h3>
-                <div class="quiz-grid">
-                    <div class="quiz-card">
-                        <h4>Mathematics Quiz</h4>
-                        <p>Test your calculus knowledge</p>
-                        <button class="btn-primary" onclick="app.startQuiz('math')">Start Quiz</button>
+               <div class="quiz-grid">
+                <div class="quiz-card">
+                    <h4>Array</h4>
+                    <p>Test your Array knowledge</p>
+                    <a href="https://www.geeksforgeeks.org/quizzes/top-mcqs-on-array-data-structure-with-answers/" target="_blank">
+                    <button class="btn-primary">Start Quiz</button>
+                    </a>
                     </div>
+                </div>
                     <div class="quiz-card">
-                        <h4>Physics Quiz</h4>
-                        <p>Quantum mechanics fundamentals</p>
-                        <button class="btn-primary" onclick="app.startQuiz('physics')">Start Quiz</button>
+                    <h4>Stack</h4>
+                    <p>Test your Stack knowledge</p>
+                    <a href="https://www.geeksforgeeks.org/quizzes/top-mcqs-on-stack-data-strcuture-with-answers/" target="_blank">
+                    <button class="btn-primary">Start Quiz</button>
+                    </a>
                     </div>
+                </div>
                     <div class="quiz-card">
-                        <h4>Chemistry Quiz</h4>
-                        <p>Organic chemistry reactions</p>
-                        <button class="btn-primary" onclick="app.startQuiz('chemistry')">Start Quiz</button>
+                    <h4>LinkedList</h4>
+                    <p>Test your Array knowledge</p>
+                    <a href="https://www.geeksforgeeks.org/quizzes/top-mcqs-on-linked-list-data-structure-with-answers/" target="_blank">
+                    <button class="btn-primary">Start Quiz</button>
+                    </a>
                     </div>
-                    <div class="quiz-card">
-                        <h4>Biology Quiz</h4>
-                        <p>Cell biology and genetics</p>
-                        <button class="btn-primary" onclick="app.startQuiz('biology')">Start Quiz</button>
-                    </div>
+                </div>
                 </div>
             </div>
         `;
