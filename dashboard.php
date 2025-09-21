@@ -326,6 +326,9 @@ $user_email = $_SESSION['user_email'] ?? "student@example.com";
       </main>
     </div>
 
+
+
+
     <script src="js/data.js"></script>
     <script src="js/charts.js"></script>
     <script src="js/themes.js"></script>
@@ -334,4 +337,7 @@ $user_email = $_SESSION['user_email'] ?? "student@example.com";
     <script src="js/app.js"></script> 
   </body>
 </html>
+
+
+
 

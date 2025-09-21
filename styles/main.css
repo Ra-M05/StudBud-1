@@ -362,7 +362,7 @@ body {
     padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
-    height: 400px;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -642,3 +642,6 @@ body {
 .slide-in {
     animation: slideIn 0.3s ease-out;
 }
+
+
+

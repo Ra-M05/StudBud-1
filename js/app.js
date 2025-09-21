@@ -29,7 +29,7 @@ class StudyHubApp {
             });
         });
     }
-    
+
     navigateToPage(page) {
         // Hide all content sections
         document.querySelectorAll('.content-section').forEach(section => {
@@ -151,26 +151,86 @@ class StudyHubApp {
     loadNotes() {
         const notesGrid = document.getElementById('notesGrid');
         if (!notesGrid) return;
-        
-        notesGrid.innerHTML = '';
-        
-        mockData.notes.forEach(note => {
-            const noteCard = document.createElement('div');
-            noteCard.className = 'note-card fade-in';
-            noteCard.innerHTML = `
-                <div class="note-content">
-                    <h3 class="note-title">${note.title}</h3>
-                    <p class="note-subject">${note.subject}</p>
-                    <p class="note-description">${note.description}</p>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <span style="font-size: 0.875rem; color: var(--text-secondary);">${note.pages} pages</span>
-                        <span style="font-size: 0.875rem; color: var(--text-secondary);">Updated ${note.lastModified}</span>
-                    </div>
-                    <button class="btn-primary" onclick="app.openNote(${note.id})">Read Now</button>
-                </div>
-            `;
-            notesGrid.appendChild(noteCard);
-        });
+
+        // Only show Data Structures and Algorithms notes with enhanced bubble styling
+        notesGrid.innerHTML = `
+            <style>
+                .note-card.dsa {
+                    background: linear-gradient(135deg, #a7f3d0 0%, #f0fdfa 100%);
+                    border-radius: 2rem;
+                    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.18), 0 1.5px 8px rgba(16, 185, 129, 0.10);
+                    padding: 2.5rem 2rem;
+                    margin: 1.5rem 1rem;
+                    transition: box-shadow 0.3s, transform 0.3s;
+                    border: none;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .note-card.dsa::before {
+                    content: '';
+                    position: absolute;
+                    top: -40px;
+                    right: -40px;
+                    width: 120px;
+                    height: 120px;
+                    background: radial-gradient(circle, #3b82f6 30%, transparent 70%);
+                    opacity: 0.18;
+                    z-index: 0;
+                }
+                .note-card.dsa:hover {
+                    box-shadow: 0 16px 48px rgba(59, 130, 246, 0.28);
+                    transform: translateY(-4px) scale(1.04);
+                }
+                .note-card.dsa h3 {
+                    color: #059669;
+                    margin-bottom: 0.75rem;
+                    font-size: 1.35rem;
+                    font-weight: 800;
+                    letter-spacing: 0.5px;
+                    z-index: 1;
+                    position: relative;
+                }
+                .note-card.dsa p {
+                    color: #334155;
+                    font-size: 1.05rem;
+                    margin-bottom: 0;
+                    z-index: 1;
+                    position: relative;
+                }
+            </style>
+            <div class="note-card dsa fade-in">
+                <h3>Arrays</h3>
+                <p>Linear data structure for storing elements of the same type. Supports random access and efficient traversal.</p>
+            </div>
+            <div class="note-card dsa fade-in">
+                <h3>Linked Lists</h3>
+                <p>Collection of nodes where each node contains data and a reference to the next node. Useful for dynamic memory allocation.</p>
+            </div>
+            <div class="note-card dsa fade-in">
+                <h3>Stacks</h3>
+                <p>LIFO (Last In First Out) structure. Supports push and pop operations. Used in function calls, expression evaluation, etc.</p>
+            </div>
+            <div class="note-card dsa fade-in">
+                <h3>Queues</h3>
+                <p>FIFO (First In First Out) structure. Supports enqueue and dequeue operations. Used in scheduling, buffering, etc.</p>
+            </div>
+            <div class="note-card dsa fade-in">
+                <h3>Trees</h3>
+                <p>Hierarchical data structure with nodes connected by edges. Binary trees, BSTs, AVL trees, etc. are common types.</p>
+            </div>
+            <div class="note-card dsa fade-in">
+                <h3>Graphs</h3>
+                <p>Set of nodes (vertices) connected by edges. Used to represent networks, relationships, etc.</p>
+            </div>
+            <div class="note-card dsa fade-in">
+                <h3>Sorting Algorithms</h3>
+                <p>Techniques to arrange data in a particular order. Examples: Bubble Sort, Merge Sort, Quick Sort.</p>
+            </div>
+            <div class="note-card dsa fade-in">
+                <h3>Searching Algorithms</h3>
+                <p>Techniques to find elements in data structures. Examples: Linear Search, Binary Search.</p>
+            </div>
+        `;
     }
     
     loadVideos() {
@@ -278,14 +338,20 @@ class StudyHubApp {
         }
     }
     
-    playVideo(videoId) {
-        const video = mockData.videos.find(v => v.id === videoId);
-        if (video) {
-            this.showNotification(`Playing "${video.title}"`);
-            // In a real app, this would open the video player
+playVideo(videoId) {
+    const video = mockData.videos.find(v => v.id === videoId);
+    if (video) {
+        this.showNotification(`Playing "${video.title}"`);
+
+        // Open YouTube link if URL exists
+        if (video.url) {
+            window.open(video.url, "_blank"); // Opens in new tab
+        } else {
+            console.warn("No URL found for this video.");
         }
     }
-    
+}
+
     startQuiz(subject) {
         this.showNotification(`Starting ${subject} quiz...`);
         // In a real app, this would start the quiz interface
@@ -321,4 +387,12 @@ class StudyHubApp {
 // Initialize app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.app = new StudyHubApp();
+    
+    // Add dark mode toggle logic
+    const darkModeBtn = document.getElementById('darkModeToggle');
+    if (darkModeBtn) {
+        darkModeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    }
 });
