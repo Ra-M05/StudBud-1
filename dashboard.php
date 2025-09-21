@@ -1,22 +1,6 @@
 <?php
 session_start();
 
-
-include("config.php"); // <-- your DB connection file
-
-$user_id = $_SESSION['user_id'];
-
-// Get total study hours
-$stmt = $conn->prepare("SELECT SUM(hours) as total_hours FROM study_logs WHERE user_id = ?");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
-
-$total_hours = $row['total_hours'] ?? 0;
-
-
-
 // Redirect to login if user is not logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: test_login.php");
@@ -146,10 +130,9 @@ $user_email = $_SESSION['user_email'] ?? "student@example.com";
           <div class="stats-grid">
             <div class="stat-card">
               <div class="stat-icon">⏱️</div>
-                <div class="stat-info">
-                  <h3><?php echo $total_hours; ?></h3>
-                  <p>Hours Studied</p>
-                </div>
+              <div class="stat-info">
+                <h3 id="totalStudyTime">0</h3>
+                <p>Hours Studied</p>
               </div>
             </div>
             <div class="stat-card">
@@ -195,6 +178,8 @@ $user_email = $_SESSION['user_email'] ?? "student@example.com";
             </div>
           </div>
         </div>
+
+        
 
         <!-- Analytics -->
         <div id="analyticsContent" class="content-section">
@@ -345,7 +330,7 @@ $user_email = $_SESSION['user_email'] ?? "student@example.com";
     <script src="js/charts.js"></script>
     <script src="js/themes.js"></script>
     <!-- <script src="js/auth.js"></script> -->
-     <script src="js/timer.js"></script> 
+    <script src="js/timer.js"></script>
     <script src="js/app.js"></script> 
   </body>
 </html>
