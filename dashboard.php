@@ -324,11 +324,12 @@ $user_email = $_SESSION['user_email'] ?? "student@example.com";
       </main>
     </div>
 
-    <!-- <script src="js/data.js"></script>
+    <script src="js/data.js"></script>
     <script src="js/charts.js"></script>
     <script src="js/themes.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/timer.js"></script>
-    <script src="js/app.js"></script> -->
+    <!-- <script src="js/auth.js"></script> -->
+     <script src="js/timer.js"></script> 
+    <script src="js/app.js"></script> 
   </body>
 </html>
+
