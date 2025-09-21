@@ -22,9 +22,9 @@ if(!isset($_SESSION['username'])){
         <h2>Study Videos</h2>
 
         <div class="video-card">
-            <h3>Integration Techniques (Maths)</h3>
+            <h3>DSA Intro</h3>
             <iframe width="560" height="315" 
-                src="https://www.youtube.com/embed/VIDEO_ID1" 
+                src="https://www.youtube.com/watch?v=Qmt0QwzEmh0" 
                 frameborder="0" allowfullscreen>
             </iframe>
         </div>
