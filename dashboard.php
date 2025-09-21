@@ -23,7 +23,29 @@ $user_email = $_SESSION['user_email'] ?? "student@example.com";
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/themes.css" />
      <link rel="stylesheet" href="styles/charts.css" />
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
+
+     <style>
+/* Logout button styling */
+.btn-logout {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #EF4444; /* red color for logout */
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-logout:hover {
+    background-color: #B91C1C; /* darker red on hover */
+    transform: scale(1.05);
+}
+</style>
+
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
   </head>
   <body>
     <!-- Theme Customizer -->
@@ -90,7 +112,8 @@ $user_email = $_SESSION['user_email'] ?? "student@example.com";
 
             </div>
           </div>
-          <button id="logoutBtn" class="btn-logout">Logout</button>
+         <a href="logout.php" class="btn-logout">Logout</a>
+
         </div>
       </nav>
 
@@ -306,6 +329,6 @@ $user_email = $_SESSION['user_email'] ?? "student@example.com";
     <script src="js/themes.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/timer.js"></script>
-    <script src="js/app.js"></script>
-  </body> -->
+    <script src="js/app.js"></script> -->
+  </body>
 </html>
